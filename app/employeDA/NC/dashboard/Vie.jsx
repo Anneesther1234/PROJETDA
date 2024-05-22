@@ -56,7 +56,7 @@ export default function Vie () {
         BarController
       );
       // Récupération des données 
-      const {data, isLoading,error,refetch} = useQuery({
+      const {dataAnee, isLoading,error,refetch} = useQuery({
         queryKey : ["ncDashboard"],
         queryFn : async () => {
             const user = await getInfo()
@@ -70,8 +70,8 @@ export default function Vie () {
         },
         refetchInterval : 10000,
         refetchIntervalInBackground : true,
-        onSucces : (data) => {
-            console.log("Success request ",data);
+        onSucces : (dataAnee) => {
+            console.log("Success request ",dataAnee);
         },
 
     })
@@ -113,16 +113,10 @@ export default function Vie () {
             data: [800,700,600,500,400,300,200],
             backgroundColor: '#009440',
           },
-          {
-            type : 'bar',
-            label: 'COURTIERS',
-            data: [800,700,600,500,400,300,200],
-            backgroundColor: '#5C5C5C',
-          },
-          
-          
         ],
       };
+
+    
     return (
         <div className='h-[94%] flex '>
             <div className='w-10/12 h-full '>
